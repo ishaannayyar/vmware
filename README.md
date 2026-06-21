@@ -1,4 +1,4 @@
-# PwC VMware Assessment Tool
+# VMware Assessment Tool
 
 A self-contained, client-facing assessment tool that scores an organization's
 suitability for a VMware exit based on cost pressure, technical lock-in
