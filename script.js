@@ -608,9 +608,9 @@ function computeAndRenderResults() {
   });
 
   // build mailto
-  const subject = encodeURIComponent(`VMware Exit Signal result: ${total}/100 — ${tier.label}`);
+  const subject = encodeURIComponent(`VMware Assessment result: ${total}/100 — ${tier.label}`);
   const bodyLines = [
-    `Exit Signal result`,
+    `VMware Assessment result`,
     `Score: ${total}/100 — ${tier.label}`,
     ``,
     `Category breakdown:`,
@@ -618,7 +618,7 @@ function computeAndRenderResults() {
     ``,
     `Sites: ${state.answers.A1 ?? "—"} | Hosts: ${state.answers.A2 ?? "—"} | VMs: ${state.answers.A4 ?? "—"}`,
     ``,
-    `Sent from Exit Signal assessment tool.`,
+    `Sent from the VMware Assessment tool.`,
   ];
   const body = encodeURIComponent(bodyLines.join("\n"));
   document.getElementById("emailBtn").onclick = () => {
