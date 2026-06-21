@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Exit Signal — VMware Renewal Readiness Assessment</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="topbar-inner">
+    <div class="brand">
+      <span class="brand-mark">●</span>
+      <span class="brand-name">EXIT SIGNAL</span>
+    </div>
+    <div class="brand-sub">VMware Renewal Readiness Assessment</div>
+  </div>
+  <div class="meter" aria-hidden="true">
+    <div class="meter-fill" id="meterFill"></div>
+  </div>
+</header>
+
+<main id="app">
+
+  <!-- INTRO -->
+  <section class="screen" id="screen-intro" data-screen="intro">
+    <div class="panel intro-panel">
+      <div class="eyebrow">BEFORE YOU START</div>
+      <h1>Is a VMware exit actually right for you<br>— or just a louder invoice?</h1>
+      <p class="lede">
+        Broadcom's renewal pricing has pushed every VMware customer into the same conversation.
+        For most organizations, the right move isn't "migrate everything" or "pay whatever they ask" —
+        it's a specific answer based on your NSX and vSAN footprint, your workload risk, and your readiness to execute.
+      </p>
+      <p class="lede">
+        This takes about 6 minutes. Six sections, real infrastructure questions, no email required to see your result.
+      </p>
+      <div class="intro-meta">
+        <div class="intro-meta-item">
+          <span class="mono">06</span>
+          <span>sections</span>
+        </div>
+        <div class="intro-meta-item">
+          <span class="mono">~6</span>
+          <span>minutes</span>
+        </div>
+        <div class="intro-meta-item">
+          <span class="mono">100</span>
+          <span>point scale</span>
+        </div>
+      </div>
+      <button class="btn btn-primary" id="startBtn">Start assessment →</button>
+    </div>
+  </section>
+
+  <!-- QUESTION SCREENS injected here by JS -->
+  <div id="questionScreens"></div>
+
+  <!-- RESULTS -->
+  <section class="screen" id="screen-results" data-screen="results" hidden>
+    <div class="results-wrap">
+
+      <div class="panel result-panel">
+        <div class="eyebrow" id="resultEyebrow">YOUR RESULT</div>
+        <h2 id="resultTier">—</h2>
+        <p class="result-sub" id="resultSub">—</p>
+
+        <div class="gauge-wrap">
+          <div class="gauge-track">
+            <div class="gauge-zone zone-stay"></div>
+            <div class="gauge-zone zone-phase"></div>
+            <div class="gauge-zone zone-exit"></div>
+            <div class="gauge-needle" id="gaugeNeedle"></div>
+          </div>
+          <div class="gauge-labels">
+            <span>NEGOTIATE &amp; OPTIMIZE</span>
+            <span>PHASED EXIT</span>
+            <span>STRONG EXIT CANDIDATE</span>
+          </div>
+          <div class="gauge-score"><span class="mono" id="gaugeScoreNum">0</span><span class="gauge-score-max">/100</span></div>
+        </div>
+      </div>
+
+      <div class="panel">
+        <div class="eyebrow">CATEGORY BREAKDOWN</div>
+        <div class="cat-bars" id="catBars"></div>
+      </div>
+
+      <div class="panel">
+        <div class="eyebrow">WHAT THIS MEANS</div>
+        <div id="recommendation" class="recommendation"></div>
+      </div>
+
+      <div class="panel">
+        <div class="eyebrow">SUGGESTED TARGET PLATFORM</div>
+        <div id="platformSuggestion" class="platform-suggestion"></div>
+      </div>
+
+      <div class="panel universal-panel">
+        <div class="eyebrow">REGARDLESS OF YOUR SCORE</div>
+        <p>Build a one-page, costed exit plan — even if you don't execute it. Across every benchmarked Broadcom renewal,
+        a credible alternative on the table is what moves the number, not a strongly worded email. Bring the plan, not just the ask.</p>
+      </div>
+
+      <div class="result-actions">
+        <button class="btn btn-secondary" id="printBtn">Print / Save as PDF</button>
+        <button class="btn btn-ghost" id="restartBtn">Restart assessment</button>
+      </div>
+
+      <div class="panel contact-panel" id="contactPanel">
+        <div class="eyebrow">SEND THIS RESULT</div>
+        <p>Want a follow-up read on this from an advisor? Send your summary directly.</p>
+        <button class="btn btn-primary" id="emailBtn">Email my result →</button>
+      </div>
+
+    </div>
+  </section>
+
+</main>
+
+<footer class="sitefooter">
+  <span>Exit Signal · Independent assessment tool · Not affiliated with Broadcom or VMware · For illustration purposes — verify figures against your actual renewal quote</span>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
