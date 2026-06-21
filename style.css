@@ -22,7 +22,8 @@
   --font-body: 'Inter', -apple-system, sans-serif;
   --font-mono: 'IBM Plex Mono', monospace;
 
-  --radius: 6px;
+  --radius: 10px;
+  --radius-pill: 999px;
   --maxw: 760px;
   --shadow: 0 1px 2px rgba(28,27,25,0.04), 0 8px 24px -12px rgba(28,27,25,0.10);
 }
@@ -79,22 +80,35 @@ a { color: var(--orange-dark); }
 .brand {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 10px;
   font-family: var(--font-display);
   font-weight: 700;
-  letter-spacing: 0.04em;
-  font-size: 15px;
+  letter-spacing: 0.01em;
+  font-size: 17px;
   color: var(--ink);
 }
 
-.brand-mark { color: var(--orange); font-size: 10px; }
+.brand-mark {
+  color: #fff;
+  background: var(--orange);
+  font-size: 12px;
+  font-weight: 700;
+  width: 22px;
+  height: 22px;
+  border-radius: 6px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-display);
+}
 
 .brand-sub {
-  font-family: var(--font-mono);
-  font-size: 11.5px;
+  font-family: var(--font-body);
+  font-size: 12px;
+  font-weight: 600;
   color: var(--muted-2);
   text-transform: uppercase;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.04em;
 }
 
 .meter {
@@ -129,23 +143,24 @@ a { color: var(--orange-dark); }
   background: var(--panel);
   border: 1px solid var(--line);
   border-radius: var(--radius);
-  padding: 32px;
-  margin-bottom: 20px;
+  padding: 38px;
+  margin-bottom: 22px;
   box-shadow: var(--shadow);
 }
 
 @media (max-width: 600px) {
-  .panel { padding: 24px 20px; }
+  .panel { padding: 26px 22px; }
   #app { padding: 28px 16px 64px; }
 }
 
 .eyebrow {
-  font-family: var(--font-mono);
-  font-size: 11.5px;
-  letter-spacing: 0.09em;
-  color: var(--orange-dark);
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  color: var(--orange);
   text-transform: uppercase;
-  margin-bottom: 14px;
+  margin-bottom: 16px;
   display: flex;
   align-items: center;
   gap: 8px;
@@ -153,8 +168,9 @@ a { color: var(--orange-dark); }
 
 .eyebrow::before {
   content: "";
-  width: 14px;
-  height: 1px;
+  width: 22px;
+  height: 4px;
+  border-radius: 2px;
   background: var(--orange);
   display: inline-block;
 }
@@ -166,11 +182,11 @@ a { color: var(--orange-dark); }
 
 h1 {
   font-family: var(--font-display);
-  font-size: clamp(26px, 4.4vw, 36px);
-  line-height: 1.18;
+  font-size: clamp(30px, 5.2vw, 44px);
+  line-height: 1.1;
   font-weight: 700;
-  margin: 0 0 20px;
-  letter-spacing: -0.01em;
+  margin: 0 0 22px;
+  letter-spacing: -0.02em;
   color: var(--ink);
 }
 
@@ -215,11 +231,11 @@ h1 {
    =========================================================== */
 .btn {
   font-family: var(--font-body);
-  font-weight: 600;
-  font-size: 14.5px;
-  padding: 14px 26px;
-  border-radius: var(--radius);
-  border: 1px solid transparent;
+  font-weight: 700;
+  font-size: 15px;
+  padding: 16px 30px;
+  border-radius: var(--radius-pill);
+  border: 1.5px solid transparent;
   cursor: pointer;
   transition: transform 0.12s ease, background 0.12s ease, border-color 0.12s ease;
 }
@@ -234,10 +250,10 @@ h1 {
 
 .btn-secondary {
   background: #fff;
-  border-color: var(--line);
+  border-color: var(--ink);
   color: var(--ink);
 }
-.btn-secondary:hover { border-color: var(--muted-2); }
+.btn-secondary:hover { background: var(--ink); color: #fff; }
 
 .btn-ghost {
   background: transparent;
@@ -257,11 +273,13 @@ h1 {
    Question screens
    =========================================================== */
 .q-section-label {
-  font-family: var(--font-mono);
-  font-size: 12px;
-  color: var(--muted-2);
-  margin-bottom: 6px;
-  letter-spacing: 0.04em;
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--orange);
+  margin-bottom: 8px;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
 }
 
 .q-section-title {
@@ -308,9 +326,9 @@ h1 {
   display: flex;
   align-items: center;
   gap: 12px;
-  padding: 13px 16px;
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
+  padding: 15px 18px;
+  border: 1.5px solid var(--line);
+  border-radius: 10px;
   cursor: pointer;
   background: var(--panel-2);
   transition: border-color 0.12s ease, background 0.12s ease;
@@ -337,8 +355,9 @@ h1 {
 }
 
 .q-progress {
-  font-family: var(--font-mono);
-  font-size: 12px;
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 600;
   color: var(--muted-2);
 }
 
@@ -352,12 +371,17 @@ h1 {
   to { opacity: 1; transform: translateY(0); }
 }
 
-.result-panel { text-align: left; }
+.result-panel {
+  text-align: left;
+  border-top: 5px solid var(--orange);
+}
 
 #resultTier {
   font-family: var(--font-display);
-  font-size: clamp(24px, 4vw, 32px);
-  margin: 0 0 8px;
+  font-size: clamp(26px, 4.4vw, 36px);
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  margin: 0 0 10px;
 }
 
 .result-sub {
@@ -398,11 +422,12 @@ h1 {
 .gauge-labels {
   display: flex;
   justify-content: space-between;
-  margin-top: 10px;
-  font-family: var(--font-mono);
-  font-size: 10.5px;
+  margin-top: 12px;
+  font-family: var(--font-body);
+  font-size: 11px;
+  font-weight: 600;
   color: var(--muted-2);
-  letter-spacing: 0.03em;
+  letter-spacing: 0.02em;
 }
 
 .gauge-labels span:nth-child(2) { flex: 0 0 auto; margin: 0 auto; }
@@ -490,10 +515,10 @@ h1 {
    =========================================================== */
 .sitefooter {
   text-align: center;
-  padding: 28px 24px 40px;
-  font-size: 12px;
+  padding: 32px 24px 44px;
+  font-size: 12.5px;
   color: var(--muted-2);
-  font-family: var(--font-mono);
+  font-family: var(--font-body);
 }
 
 /* ===========================================================
